@@ -3,7 +3,8 @@ Console.WriteLine("Boas Vindas ao ByteBank, Atendimento.");
 //new ByteBankAtendimento().AtendimentoCliente();
 
 //chamar o metodo
-TestaArrayInt();
+//TestaArrayInt();
+TestaBuscarPalavra();
 
 void TestaArrayInt() {
     int[] idades = new int[5];
@@ -23,4 +24,25 @@ void TestaArrayInt() {
     }
      int media = acumulador / idades.Length;
     Console.WriteLine($"Media de idades = {media}");
+}
+
+void TestaBuscarPalavra()
+{
+    string[] arrayDePalavras = new string[5];
+    for (int i = 0; i < arrayDePalavras.Length; i++)
+    {
+        Console.Write($"Digite {i+1}° palavra:  ");
+        arrayDePalavras[i] = Console.ReadLine();
+    }
+    Console.WriteLine($"Digite a palavra a ser encontrada");
+    var busca = Console.ReadLine();
+    foreach(var palavra in arrayDePalavras)
+    {
+        if (palavra.Equals(busca))
+        {
+            Console.WriteLine($"Palavra encontrada é: {busca}");
+            
+        }
+       
+    }
 }
