@@ -2,6 +2,8 @@
 using bytebank_ATENDIMENTO.bytebank.Exceptions;
 
 namespace bytebank_ATENDIMENTO.bytebank.Atendimento
+
+    //teste teste 
 {
     #nullable disable
     internal  class ByteBankAtendimento
