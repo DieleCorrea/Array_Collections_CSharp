@@ -12,7 +12,7 @@ namespace bytebank_ATENDIMENTO.bytebank.Util
         private ContaCorrente[] _itens = null;
         private int _proximoItem = 0;
 
-        public ListaDeContasCorrentes( int tamanhoInicial)
+        public ListaDeContasCorrentes( int tamanhoInicial = 5)
         {
             _itens = new ContaCorrente[tamanhoInicial];
             
@@ -20,6 +20,7 @@ namespace bytebank_ATENDIMENTO.bytebank.Util
        //criar metodo para adicionar 
        public void Adicionar(ContaCorrente item)
         {
+            Console.WriteLine($"Adicionando item na posição {_proximoItem}");
             _itens[_proximoItem] = item;   
             _proximoItem++;
         }

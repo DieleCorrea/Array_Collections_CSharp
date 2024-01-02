@@ -1,12 +1,10 @@
 ﻿using bytebank.Modelos.Conta;
 using bytebank_ATENDIMENTO.bytebank.Atendimento;
-Console.WriteLine("Boas Vindas ao ByteBank, Atendimento.");
+using bytebank_ATENDIMENTO.bytebank.Util;
+
+//Console.WriteLine("Boas Vindas ao ByteBank, Atendimento.");
+
 //new ByteBankAtendimento().AtendimentoCliente();
-
-//chamar o metodo
-//TestaArrayInt();
-//TestaBuscarPalavra();
-
 //classe array disponivel na biblioteca de classes do .net 
 
 Array amostra = Array.CreateInstance(typeof(double), 5);
@@ -16,7 +14,7 @@ amostra.SetValue(1.8, 1);
 amostra.SetValue(7.1, 2);
 amostra.SetValue(10, 3);
 amostra.SetValue(6.9, 4);
-//testaMediana(amostra);
+
 void testaMediana(Array array)
 {
     if (array == null || array.Length == 0)
@@ -77,17 +75,16 @@ void TestaBuscarPalavra()
 
 void TestaArrayDeContasCorrents()
 {
-    ContaCorrente[] listaDeContas = new ContaCorrente[]
-    {
-        //criar cntas 
-        new ContaCorrente(874, "5679787-A"),
-        new ContaCorrente(874, "4456668-B"),
-        new ContaCorrente(874, "7781438-C"),
-    };
-    for (int i = 0; i < listaDeContas.Length; i++)
-    {
-        ContaCorrente contaAtual = listaDeContas[i];
-        Console.WriteLine($"Indice {i} - Conta {contaAtual.Conta}");
-    }
+    ListaDeContasCorrentes listaDeContas = new ListaDeContasCorrentes();
+    listaDeContas.Adicionar(new ContaCorrente(874, "5679787-A"));
+    listaDeContas.Adicionar(new ContaCorrente(874, "4456668-B"));
+    listaDeContas.Adicionar(new ContaCorrente(874, "7781438-C"));
+  
+
 }
+
+//chamar o metodo
+//TestaArrayInt();
+//TestaBuscarPalavra();
+//testaMediana(amostra);
 TestaArrayDeContasCorrents();
