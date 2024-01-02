@@ -24,5 +24,15 @@ namespace bytebank_ATENDIMENTO.bytebank.Util
             _itens[_proximoItem] = item;   
             _proximoItem++;
         }
+
+        //verificar a capacidade do array para ele não quebrar 
+        private void VerificarCapacidade(int tamanhoNecessario)
+        {
+            if(_itens.Length >= tamanhoNecessario)
+            {
+                return;
+            }
+            Console.WriteLine($"Aumentando a capacidade");
+        }
     }
 }
