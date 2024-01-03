@@ -1,12 +1,14 @@
 ﻿using bytebank.Modelos.Conta;
 using bytebank_ATENDIMENTO.bytebank.Atendimento;
 using bytebank_ATENDIMENTO.bytebank.Util;
+using bytebank_ATENDIMENTO.Exercicios;
 
 //Console.WriteLine("Boas Vindas ao ByteBank, Atendimento.");
 
 //new ByteBankAtendimento().AtendimentoCliente();
 //classe array disponivel na biblioteca de classes do .net 
 
+ArrayInteiros arrayInteiros = new ArrayInteiros();
 Array amostra = Array.CreateInstance(typeof(double), 5);
 
 amostra.SetValue(5.9, 0);
@@ -79,7 +81,7 @@ void TestaArrayDeContasCorrents()
     listaDeContas.Adicionar(new ContaCorrente(874, "5679787-A"));
     listaDeContas.Adicionar(new ContaCorrente(874, "4456668-B"));
     listaDeContas.Adicionar(new ContaCorrente(874, "7781438-C"));
-  
+
 
 }
 
@@ -87,4 +89,6 @@ void TestaArrayDeContasCorrents()
 //TestaArrayInt();
 //TestaBuscarPalavra();
 //testaMediana(amostra);
-TestaArrayDeContasCorrents();
+//TestaArrayDeContasCorrents();
+//arrayInteiros.MeusInteiros();
+Strings.testeArrayString();
