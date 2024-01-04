@@ -1,5 +1,4 @@
 ﻿using bytebank.Modelos.Conta;
-using bytebank_ATENDIMENTO.bytebank.Atendimento;
 using bytebank_ATENDIMENTO.bytebank.Util;
 using bytebank_ATENDIMENTO.Exercicios;
 
@@ -81,7 +80,7 @@ void TestaArrayDeContasCorrents()
     listaDeContas.Adicionar(new ContaCorrente(874, "5679787-A"));
     listaDeContas.Adicionar(new ContaCorrente(874, "4456668-B"));
     listaDeContas.Adicionar(new ContaCorrente(874, "7781438-C"));
-
+    
 
 }
 
@@ -89,6 +88,6 @@ void TestaArrayDeContasCorrents()
 //TestaArrayInt();
 //TestaBuscarPalavra();
 //testaMediana(amostra);
-//TestaArrayDeContasCorrents();
+TestaArrayDeContasCorrents();
 //arrayInteiros.MeusInteiros();
-Strings.testeArrayString();
+//Strings.testeArrayString();
