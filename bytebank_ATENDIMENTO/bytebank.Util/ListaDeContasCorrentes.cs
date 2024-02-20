@@ -10,7 +10,7 @@ namespace bytebank_ATENDIMENTO.bytebank.Util
     public class ListaDeContasCorrentes
     {
         private ContaCorrente[] _itens = null;
-        private int _proximoItem = 0;
+        private int _proximaPosicao = 0;
 
         public ListaDeContasCorrentes( int tamanhoInicial = 5)
         {
@@ -20,12 +20,11 @@ namespace bytebank_ATENDIMENTO.bytebank.Util
        //criar metodo para adicionar 
        public void Adicionar(ContaCorrente item)
         {
-            Console.WriteLine($"Adicionando item na posição {_proximoItem}");
-            VerificarCapacidade(_proximoItem + 1);
-            _itens[_proximoItem] = item;   
-            _proximoItem++;
+            Console.WriteLine($"Adicionando item na posição {_proximaPosicao}");
+            VerificarCapacidade(_proximaPosicao + 1);
+            _itens[_proximaPosicao] = item;   
+            _proximaPosicao++;
         }
-
         //verificar a capacidade do array para ele não quebrar 
         private void VerificarCapacidade(int tamanhoNecessario)
         {
@@ -43,14 +42,7 @@ namespace bytebank_ATENDIMENTO.bytebank.Util
                 novoArray[i] = _itens[i];//enquanto i for menor que o tamanho de itens, continuaremos rodando esse loop. Os índices serão definidos por i e, a cada iteração, novoArray receberá um novo elemento de _itens. Esse processo é semelhante a uma clonagem.
             }
             _itens = novoArray;
-        }
-
-        //DESAFIO: CRIAR UM METODO QUE RETORNORNE A CONTA CORRENTE COM O MAIOR SALDO DA LISTA 
-        //public void MaiorSaldo()
-        //{
-
-        //}
-       
+        } 
         public ContaCorrente SaldoMaior()
         {
             ContaCorrente conta = null;// crio um obj de conta conrrente onde vai trazer os saldos 
@@ -73,6 +65,59 @@ namespace bytebank_ATENDIMENTO.bytebank.Util
                 }
             }
             return conta;
+        }
+
+        public void Remover ( ContaCorrente conta )
+        {
+            int indiceItem = -1;
+            for(int i = 0; i < _proximaPosicao; i++)
+            {
+                ContaCorrente contaAtual = _itens[i];
+                if(contaAtual == conta) 
+                { 
+                    indiceItem = i;
+                    break;
+                }
+                
+            }
+            for (int i = indiceItem; i < _proximaPosicao - 1; i++)
+            {
+                _itens[i] = _itens[i + 1];
+            }
+            _proximaPosicao--;
+            _itens[_proximaPosicao] = null;
+        }
+        
+
+        public void ExibeLista()
+        {
+            for (int i = 0; i < _itens.Length; i++)
+            {
+                if (_itens[i] != null)
+                {
+                    var conta = _itens[i];
+                    Console.WriteLine($" Indice[{i}] = " +
+                        $"Conta:{conta.Conta} - " +
+                        $"N° da Agência: {conta.Numero_agencia}");
+                }
+            }
+        }
+
+        public ContaCorrente RecuperarContaNoIndice(int indice)
+        {
+            if (indice < 0 || indice >= _proximaPosicao)
+            {
+                throw new ArgumentOutOfRangeException(nameof(indice));
+            }
+            return _itens[indice];
+        }
+        public int Tamanho { get { return _proximaPosicao; } }
+        public ContaCorrente this[int indice]
+        {
+            get
+            {
+                return RecuperarContaNoIndice(indice);
+            }
         }
     }
 }

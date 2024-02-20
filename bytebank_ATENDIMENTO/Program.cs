@@ -74,20 +74,34 @@ void TestaBuscarPalavra()
     }
 }
 
-void TestaArrayDeContasCorrents()
+void TestaArrayDeContasCorrentes()
 {
+
     ListaDeContasCorrentes listaDeContas = new ListaDeContasCorrentes();
     listaDeContas.Adicionar(new ContaCorrente(874, "5679787-A"));
     listaDeContas.Adicionar(new ContaCorrente(874, "4456668-B"));
     listaDeContas.Adicionar(new ContaCorrente(874, "7781438-C"));
-    
+    listaDeContas.Adicionar(new ContaCorrente(874, "7781438-C"));
+    listaDeContas.Adicionar(new ContaCorrente(874, "7781438-C"));
+    listaDeContas.Adicionar(new ContaCorrente(874, "7781438-C"));
+    var contaDoAndre = new ContaCorrente(963, "123456-X");
+    listaDeContas.Adicionar(contaDoAndre);
+    //listaDeContas.ExibeLista();
+    //Console.WriteLine("============");
+    //listaDeContas.Remover(contaDoAndre);
+    //listaDeContas.ExibeLista();
+    for (int i = 0; i < listaDeContas.Tamanho; i++)
+    {
+        ContaCorrente conta = listaDeContas[i];
+        Console.WriteLine($"Indice [{i}] = {conta.Conta}/{conta.Numero_agencia}");
 
+    }
 }
 
 //chamar o metodo
 //TestaArrayInt();
 //TestaBuscarPalavra();
 //testaMediana(amostra);
-TestaArrayDeContasCorrents();
+TestaArrayDeContasCorrentes();
 //arrayInteiros.MeusInteiros();
 //Strings.testeArrayString();
